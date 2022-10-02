@@ -102,6 +102,10 @@ $PYENV install -s
 
 # Install virtualenv
 PYVERSION=$(python -V 2>&1 | /usr/bin/cut -c8-10)
+if [ $PYVERSION = "3.1" ]; then
+  # 3.1x
+  PYVERSION=$(python -V 2>&1 | /usr/bin/cut -c8-11)
+fi
 
 echo Python version is $PYVERSION
 VIRTUALENV=$PYENV_ROOT/bin/virtualenv.pyz
